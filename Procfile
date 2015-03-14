@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/lean-poker-standalone.jar clojure.main -m lean-poker.core $PORT
