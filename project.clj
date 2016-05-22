@@ -3,9 +3,9 @@
   :url "http://github.com/lean_poker/poker-player-clojure"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [ring/ring-core "1.3.2"]
-                 [ring/ring-jetty-adapter "1.3.2"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [ring/ring-core "1.4.0"]
+                 [ring/ring-jetty-adapter "1.4.0"]
                  [org.clojure/data.json "0.2.6"]
                  [com.taoensso/timbre "3.4.0"]]
   :min-lein-version "2.4.3"
