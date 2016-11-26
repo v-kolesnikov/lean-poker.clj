@@ -9,7 +9,7 @@
 
 (defn check-hand [a b]
   (cond
-    (and (> a 9) (> b 9) (= a b) true)
+    (and (> a 9) (> b 9) (= a b)) true
     (= a b) true
     :else false))
 
