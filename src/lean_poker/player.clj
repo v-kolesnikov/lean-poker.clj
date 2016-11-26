@@ -54,6 +54,7 @@
            (map rank-weight)
            (check-state)))
     (catch Exception e
+      (log/info e)
       10)))
 
 (defn showdown
