@@ -30,6 +30,13 @@
        :headers {"Content-Type" "text/html"}
        :body    (str showdown)})
 
+    "check"
+    (let [showdown (player/showdown (game-state req))]
+      (log/info "Showdown" showdown)
+      {:status  200
+       :headers {"Content-Type" "text/html"}
+       :body    "Im clojurians!"})
+
     "version"
     (do
       (log/info "Version" player/version)
