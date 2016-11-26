@@ -2,21 +2,23 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.15-lucky")
+(def version "0.0.19-lucky")
 
-(def small-bet 0)
-(def mid-bet 100)
+(def zero-bet 0)
+(def small-bet 70)
+(def mid-bet 170)
 (def big-bet 230)
 
 (defn check-state [a b x y z]
-  (log/info "CHECKING STATE with ARGS: " [a b x y z])
-  (cond
-    (and (> a 8) (> b 8) (= a b)) big-bet
-    (and (> a 10) (> b 10)) big-bet
-    (or (= a x) (= a y)
-        (= a z) (= b x)
-        (= b y) (= b z)) mid-bet
-    :else small-bet))
+  (log/info "CHECKING STATE with ARGS: " [a b x y z]
+    (cond
+      (and (> a 8) (> b 8) (= a b)) big-bet
+      (= a b) small-bet
+      (and (> a 7) (> b 7)) mid-bet
+      (or (= a x) (= a y)
+          (= a z) (= b x)
+          (= b y) (= b z)) mid-bet
+      :else zero-bet)))
 
 (defn check-hand [a b]
   (log/info "In check-hand: a:" a)
@@ -49,12 +51,10 @@
     (let [card1 (first  (hand/my-cards game-state))
           card2 (second (hand/my-cards game-state))]
       (->> hand/visible-cards
-         (map rank-weight)
-         (check-state)))
+           (map rank-weight)
+           (check-state)))
     (catch Exception e
-      small-bet)))
-
-
+      zero-bet)))
 
 (defn showdown
   [game-state]
