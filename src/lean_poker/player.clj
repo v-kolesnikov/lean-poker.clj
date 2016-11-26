@@ -11,13 +11,12 @@
 (defn check-state [a b x y z]
   (let []
     (cond
-          (and (> a 8) (> b 8) (= a b)) big-bet
-          (and (> a 8) (> b 8)) mid-bet
-          (or (= a x) (= a y)
-              (= a z) (= b x)
-              (= b y) (= b z)) mid-bet
-          :else small-bet)
-    ))
+      (and (> a 8) (> b 8) (= a b)) big-bet
+      (and (> a 8) (> b 8)) mid-bet
+      (or (= a x) (= a y)
+          (= a z) (= b x)
+          (= b y) (= b z)) mid-bet
+      :else small-bet)))
 
 (defn rank-weight [{rank :rank}]
   (get {"2" 1
@@ -40,8 +39,8 @@
     (let [card1 (first  (hand/my-cards game-state))
           card2 (second (hand/my-cards game-state))]
       (->> hand/visible-cards
-         (map rank-weight)
-         (check-state)))
+           (map rank-weight)
+           (check-state)))
     (catch Exception e
       small-bet)))
 
