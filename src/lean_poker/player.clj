@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.13-lucky")
+(def version "0.0.14-lucky")
 
 (def small-bet 0)
 (def mid-bet 100)
