@@ -6,7 +6,8 @@
 
 (defn bet-request
   [game-state]
-  (let [my-cards (my-cards game-state)]
+  (let [my-cards (hand/my-cards game-state)]
+
       230))
 
 (defn showdown
