@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.30-CRUSHER")
+(def version "0.0.31-CRUSHER")
 
 (def zero-bet 10)
 (def small-bet 70)

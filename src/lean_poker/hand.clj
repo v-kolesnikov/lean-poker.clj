@@ -91,8 +91,10 @@
 
 (defn community-cards
   [raw-state]
-  (let [parsed-state (parse raw-state)]
-    (:community_cards parsed-state)))
+  (let [parsed-state (parse raw-state)
+        cc (:community_cards parsed-state)]
+    (log/info cc)
+    cc))
 ; (community-cards raw-state)
 
 (defn visible-cards
