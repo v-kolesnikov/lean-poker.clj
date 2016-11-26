@@ -2,9 +2,10 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.17-lucky")
+(def version "0.0.19-lucky")
 
-(def small-bet 0)
+(def zero-bet 0)
+(def small-bet 70)
 (def mid-bet 170)
 (def big-bet 230)
 
@@ -12,11 +13,12 @@
   (let []
     (cond
       (and (> a 8) (> b 8) (= a b)) big-bet
+      (= a b) small-bet
       (and (> a 7) (> b 7)) mid-bet
       (or (= a x) (= a y)
           (= a z) (= b x)
           (= b y) (= b z)) mid-bet
-      :else small-bet)))
+      :else zero-bet)))
 
 (defn rank-weight [{rank :rank}]
   (get {"2" 1
@@ -42,7 +44,7 @@
            (map rank-weight)
            (check-state)))
     (catch Exception e
-      small-bet)))
+      zero-bet)))
 
 (defn showdown
   [game-state]
