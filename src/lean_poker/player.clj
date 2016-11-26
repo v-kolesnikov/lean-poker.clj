@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.20-lucky+")
+(def version "0.0.21-lucky+")
 
 (def zero-bet 0)
 (def small-bet 70)
@@ -54,7 +54,7 @@
            (map rank-weight)
            (check-state)))
     (catch Exception e
-      zero-bet)))
+      small-bet)))
 
 (defn showdown
   [game-state]
