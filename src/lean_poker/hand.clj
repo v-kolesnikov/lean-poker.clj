@@ -102,3 +102,10 @@
         com (community-cards raw-state)]
     (into [] (concat my com))))
 ; (visible-cards raw-state)
+
+(defn my-stack
+  "All cards visible to me"
+  [raw-state]
+  (let [me (me raw-state)]
+    (:stack me)))
+; (my-stack raw-state
