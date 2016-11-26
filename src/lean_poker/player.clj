@@ -2,14 +2,14 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.22-lucky+")
+(def version "0.0.22-DESTROYER")
 
 (def zero-bet 0)
 (def small-bet 70)
 (def mid-bet 170)
 (def big-bet 230)
 
-(defn check-state [a b x y z]
+(defn check-state [[a b x y z]]
   (log/info "CHECKING STATE with ARGS: " [a b x y z])
   (cond
     (and (> a 8) (> b 8) (= a b)) big-bet

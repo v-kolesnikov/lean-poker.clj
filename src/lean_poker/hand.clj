@@ -109,3 +109,19 @@
   (let [me (me raw-state)]
     (:stack me)))
 ; (my-stack raw-state
+
+
+
+; (let [[a b x y z] [10 1 nil nil nil]
+;       zero-bet 0
+;       small-bet 70
+;       mid-bet 170
+;       big-bet 230]
+;   (cond
+;     (and (> a 8) (> b 8) (= a b)) big-bet
+;     (= a b) small-bet
+;     (and (> a 7) (> b 7)) mid-bet
+;     (or (= a x) (= a y)
+;         (= a z) (= b x)
+;         (= b y) (= b z)) mid-bet
+;     :else zero-bet))
