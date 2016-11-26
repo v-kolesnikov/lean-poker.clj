@@ -44,12 +44,10 @@
         big_bet
         small_bet))
     (catch Exception e
-      0)))
+      small_bet)))
 
 
 (defn showdown
   [game-state]
   (log/info game-state)
   nil)
-
-(> nil 0)
