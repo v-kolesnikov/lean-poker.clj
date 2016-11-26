@@ -93,3 +93,12 @@
   [raw-state]
   (let [parsed-state (parse raw-state)]
     (:community_cards parsed-state)))
+; (community-cards raw-state)
+
+(defn visible-cards
+  "All cards visible to me"
+  [raw-state]
+  (let [my (my-cards raw-state)
+        com (community-cards raw-state)]
+    (into [] (concat my com))))
+; (visible-cards raw-state)
