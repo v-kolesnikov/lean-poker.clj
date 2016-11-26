@@ -68,10 +68,16 @@
 ;; MOQ STATE :: ENDS HERE
 ;;------------------------------------------
 
-(defn parse [state]
-  (let [players (get moq-state "players")
+(defn parse [raw-state]
+  (let [parsed-state (-> (json/write-str raw-state)
+                         (json/read-str :key-fn keyword))
+        players (:players (first parsed-state))
         me (filter
-              #(contains? % "hole_cards")
-              players)]))
+              #(contains? % :hole_cards)
+              players)]
+      parsed-state))
 
 (parse [moq-state])
+
+;; rank == rank
+;; rank > 9
