@@ -6,7 +6,7 @@
 (defn bet-request
   [game-state]
   (log/info game-state)
-  300)
+  250)
 
 (defn showdown
   [game-state]
