@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.22-DESTROYER")
+(def version "0.0.23-DESTROYER")
 
 (def zero-bet 0)
 (def small-bet 70)
@@ -14,7 +14,7 @@
   (cond
     (and (> a 8) (> b 8) (= a b)) big-bet
     (= a b) small-bet
-    (and (> a 7) (> b 7)) mid-bet
+    (and (> a 7) (> b 7)) small-bet
     (or (= a x) (= a y)
         (= a z) (= b x)
         (= b y) (= b z)) mid-bet
