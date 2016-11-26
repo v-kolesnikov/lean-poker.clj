@@ -89,7 +89,7 @@
   (let [cards (me raw-state)]
     (:hole_cards cards)))
 
-
-;; rank == rank
-;; rank > 9
-;; more ...
+(defn community-cards
+  [raw-state]
+  (let [parsed-state (parse raw-state)]
+    (:community_cards parsed-state)))
