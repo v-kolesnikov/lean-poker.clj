@@ -36,8 +36,8 @@
   (let [card1 (first  (hand/my-cards game-state))
         card2 (second (hand/my-cards game-state))]
     (if (check-hand (rank-weight card1) (rank-weight card2))
-      big_bet
-      small_bet)))
+      (log/info [big_bet small_bet])))
+  230)
 
 (defn showdown
   [game-state]
