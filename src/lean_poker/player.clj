@@ -37,13 +37,19 @@
 (defn bet-request
   [game-state]
   (log/info (str "[GAME STATE line 37] " game-state))
-  (let [card1 (first  (hand/my-cards game-state))
-        card2 (second (hand/my-cards game-state))]
-    (if (check-hand (rank-weight card1) (rank-weight card2))
-      big_bet
-      small_bet)))
+  (try
+    (let [card1 (first  (hand/my-cards game-state))
+          card2 (second (hand/my-cards game-state))]
+      (if (check-hand (rank-weight card1) (rank-weight card2))
+        big_bet
+        small_bet))
+    (catch Exception e
+      0)))
+
 
 (defn showdown
   [game-state]
   (log/info game-state)
   nil)
+
+(> nil 0)
