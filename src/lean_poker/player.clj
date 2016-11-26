@@ -8,6 +8,8 @@
 (def big_bet 230)
 
 (defn check-hand [a b]
+  (log/info "In check-hand: a:" a)
+  (log/info "In check-hand: b:" b)
   (cond
     (and (> a 8) (> b 8) (= a b)) true
     (and (> a 10) (> b 10)) true
