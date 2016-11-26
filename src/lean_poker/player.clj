@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.29-CRUSHER")
+(def version "0.0.30-CRUSHER")
 
 (def zero-bet 10)
 (def small-bet 70)
@@ -13,7 +13,7 @@
 (defn check-state [[a b x y z g w :as all]]
   (log/info "CHECKING STATE with ARGS: " [a b x y z])
   (cond
-    (< 5 (->> all distinct count)) super-bet
+    (= 3 (->> [a b x y z] distinct count)) super-bet
     (and (> a 8) (> b 8) (= a b)) big-bet
     (= a b) small-bet
     (and (> a 7) (> b 7)) small-bet
