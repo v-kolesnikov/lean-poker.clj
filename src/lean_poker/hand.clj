@@ -7,7 +7,7 @@
 ;; MOQ STATE :: FOR DEVELOPMENT IN REPL ONLY
 ;;------------------------------------------
 
-(def moq-state
+(def raw-state
   { "tournament_id"  "550d1d68cd7bd10003000003"
       "game_id" "550da1cb2d909006e90004b1"
       "round"  0
@@ -68,16 +68,27 @@
 ;; MOQ STATE :: ENDS HERE
 ;;------------------------------------------
 
-(defn parse [raw-state]
-  (let [parsed-state (-> (json/write-str raw-state)
-                         (json/read-str :key-fn keyword))
-        players (:players (first parsed-state))
-        me (filter
-              #(contains? % :hole_cards)
-              players)]
-      parsed-state))
+(defn parse
+  "Parse & keywordize raw input"
+  [raw-state]
+  (-> (json/write-str raw-state)
+      (json/read-str :key-fn keyword)))
 
-(parse [moq-state])
+(defn me
+  "Accepts raw state, returns "
+  [raw-state]
+  (let [parsed-state (parse raw-state)
+        players (:players parsed-state)]
+    (->> players
+        (filter
+          #(contains? % :hole_cards))
+        first)))
+
+(defn my-cards
+  [raw-state]
+  (let [cards (me raw-state)]
+    (:hole_cards cards)))
 
 ;; rank == rank
 ;; rank > 9
+;; more ...
