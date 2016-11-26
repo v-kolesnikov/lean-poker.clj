@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.8-snapshot")
+(def version "0.0.9-snapshot")
 
 (def small_bet 0)
 (def big_bet 230)
@@ -14,18 +14,18 @@
     :else false))
 
 (defn rank-weight [{rank :rank}]
-  (get {1 "2"
-        2 "3"
-        3 "4"
-        4 "5"
-        5 "6"
-        6 "7"
-        8 "9"
-        9 "10"
-        10 "J"
-        11 "Q"
-        12 "K"
-        13 "A"} rank))
+  (get {"2" 1
+        "3" 2
+        "4" 3
+        "5" 4
+        "6" 5
+        "7" 6
+        "9" 8
+        "10" 9
+        "J" 10
+        "Q" 11
+        "K" 12
+        "A" 13} rank))
 
 (defn bet-request
   [game-state]
