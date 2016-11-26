@@ -12,22 +12,12 @@
   (let []
     (cond
           (and (> a 8) (> b 8) (= a b)) big-bet
-          (and (> a 10) (> b 10)) big-bet
+          (and (> a 8) (> b 8)) big-bet
           (or (= a x) (= a y)
               (= a z) (= b x)
               (= b y) (= b z)) mid-bet
           :else small-bet)
     ))
-
-(defn check-hand [a b]
-  (log/info "In check-hand: a:" a)
-  (log/info "In check-hand: b:" b)
-  (if (nil? (or a b))
-    false
-    (cond
-      (and (> a 8) (> b 8) (= a b)) true
-      (and (> a 10) (> b 10)) true
-      :else false)))
 
 (defn rank-weight [{rank :rank}]
   (get {"2" 1
@@ -54,8 +44,6 @@
          (check-state)))
     (catch Exception e
       small-bet)))
-
-
 
 (defn showdown
   [game-state]
