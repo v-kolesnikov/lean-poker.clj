@@ -1,7 +1,8 @@
 (ns lean-poker.player
   (:require [taoensso.timbre :as log]))
 
-(def version "Clojure-y folding player")
+(def version "0.0.2-snapshot")
+
 (defn bet-request
   [game-state]
   (log game-state)
