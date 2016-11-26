@@ -2,17 +2,17 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.15-lucky")
+(def version "0.0.16-lucky")
 
 (def small-bet 0)
-(def mid-bet 100)
+(def mid-bet 150)
 (def big-bet 230)
 
 (defn check-state [a b x y z]
   (let []
     (cond
           (and (> a 8) (> b 8) (= a b)) big-bet
-          (and (> a 8) (> b 8)) big-bet
+          (and (> a 8) (> b 8)) mid-bet
           (or (= a x) (= a y)
               (= a z) (= b x)
               (= b y) (= b z)) mid-bet
