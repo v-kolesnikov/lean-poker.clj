@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.6-snapshot")
+(def version "0.0.7-snapshot")
 
 (def small_bet 0)
 (def big_bet 230)
