@@ -30,12 +30,6 @@
 (def small_bet 0)
 (def big_bet 230)
 
-(defn check-hand [a b]
-  (cond
-    (and (> a 9) (> b 9) (= a b) true)
-    (= a b) true
-    :else false))
-
 (defn bet-request
   [game-state]
   (log/info game-state)
