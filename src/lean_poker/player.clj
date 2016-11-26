@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [lean-poker.hand :as hand]))
 
-(def version "0.0.23-DESTROYER")
+(def version "0.0.24-CRUSHER")
 
 (def zero-bet 0)
 (def small-bet 70)
@@ -50,7 +50,7 @@
   (try
     (let [card1 (first  (hand/my-cards game-state))
           card2 (second (hand/my-cards game-state))]
-      (->> hand/visible-cards
+      (->> (hand/visible-cards geme-state)
            (map rank-weight)
            (check-state)))
     (catch Exception e
