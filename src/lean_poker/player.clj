@@ -9,15 +9,14 @@
 (def big-bet 230)
 
 (defn check-state [a b x y z]
-  (let []
-    (cond
-          (and (> a 8) (> b 8) (= a b)) big-bet
-          (and (> a 10) (> b 10)) big-bet
-          (or (= a x) (= a y)
-              (= a z) (= b x)
-              (= b y) (= b z)) mid-bet
-          :else small-bet)
-    ))
+  (log/info "CHECKING STATE with ARGS: " [a b x y z])
+  (cond
+    (and (> a 8) (> b 8) (= a b)) big-bet
+    (and (> a 10) (> b 10)) big-bet
+    (or (= a x) (= a y)
+        (= a z) (= b x)
+        (= b y) (= b z)) mid-bet
+    :else small-bet))
 
 (defn check-hand [a b]
   (log/info "In check-hand: a:" a)
