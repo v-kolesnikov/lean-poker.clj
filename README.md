@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/v-kolesnikov/lean-poker.clj.svg?branch=master)](https://travis-ci.org/v-kolesnikov/lean-poker.clj)
+
 # lean-poker.clj
 
 [LeanPoker](http://leanpoker.org) bot on Clojure.
