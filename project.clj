@@ -1,6 +1,6 @@
-(defproject lean-poker "0.1.0-SNAPSHOT"
-  :description "LeanPoker player in Clojure"
-  :url "http://github.com/lean_poker/poker-player-clojure"
+(defproject lean-poker "2.0.0-SNAPSHOT"
+  :description "Team Clojurians poker bot"
+  :url "https://github.com/v-kolesnikov/lean-poker.clj"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
